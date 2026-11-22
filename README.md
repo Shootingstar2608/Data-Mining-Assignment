@@ -54,6 +54,27 @@ thành artifact. CI chỉ bắt đầu sau khi nhánh được push lên GitHub.
 Fingerprint CSV chuẩn hóa LF/CRLF để dùng nhất quán giữa Windows và Linux.
 Model joblib chỉ nạp từ nguồn tin cậy và nên dùng cùng phiên bản thư viện đã lưu.
 
+## Hình cho báo cáo và slide
+
+```bash
+python src/visualize_report.py
+```
+
+Script chỉ đọc kết quả pipeline đã lưu (`outputs/tables/`, `outputs/data_audit.json`,
+`data/online_retail_clean.csv`), không huấn luyện lại và không ghi đè
+`outputs/figures/`. Hình mới nằm ở `outputs/figures_report/`: tiếng Việt có dấu,
+màu cố định cho từng nhóm (VIP đỏ, Trung thành tiềm năng xanh dương, Khách mới
+xanh lá, Ngủ đông xám), 200 dpi để chèn Word/in.
+
+| Hình | Dùng cho |
+| --- | --- |
+| `01`–`04` | Tiền xử lý & EDA: số dòng/khách sau từng bước, doanh thu theo tháng, quốc gia, RFM trước/sau log1p |
+| `05`–`06` | Chọn k cho K-Means, so sánh mô hình |
+| `07`–`10` | Chân dung nhóm: snake plot, PCA, boxplot R/F/M, bảng tóm tắt |
+| `11` | Slide: 16% khách VIP mang về 64% doanh thu |
+
+Chạy lại pipeline thì chạy lại script này để số liệu trên hình khớp.
+
 ## Notebook
 
 ```bash
