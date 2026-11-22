@@ -1,0 +1,5 @@
+Segment,CustomerCount,ActionHypothesis,KPI
+VIP,685,"Giu chan, quyen loi thanh vien, gioi thieu khach",Repeat purchase rate; retention; contribution margin
+Trung thanh tiem nang,1185,"Nhac mua lai, cross-sell, uu dai theo nguong",Repeat purchase rate; net spend; margin
+Khach moi,828,"Onboarding, thu nghiem uu dai lan mua thu hai",Second purchase within 60 days
+Ngu dong,1622,Thu nghiem win-back chi phi thap,Reactivation rate; cost per reactivated customer

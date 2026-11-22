@@ -31,13 +31,16 @@ def refine_transactions(clean: pd.DataFrame) -> pd.DataFrame:
     return refined.copy()
 
 
-def load_cancellations(raw_path: Path = RAW_PATH) -> pd.DataFrame:
+def load_cancellations(raw_path: Path = RAW_PATH, raw: pd.DataFrame | None = None) -> pd.DataFrame:
     """Return cancelled product lines with a positive `CancelledValue` column."""
-    if not raw_path.exists():
-        raise FileNotFoundError(f"Dataset not found: {raw_path}")
-    raw = pd.read_excel(raw_path).dropna(subset=["CustomerID"])
+    if raw is None:
+        if not raw_path.exists():
+            raise FileNotFoundError(f"Dataset not found: {raw_path}")
+        raw = pd.read_excel(raw_path)
+    raw = raw.dropna(subset=["CustomerID"])
     cancelled = raw[raw["InvoiceNo"].astype(str).str.startswith("C")]
     cancelled = cancelled[is_product(cancelled["StockCode"])].drop_duplicates()
+    cancelled = cancelled[(cancelled["Quantity"] < 0) & (cancelled["UnitPrice"] > 0)]
     cancelled = cancelled.assign(
         CancelledValue=(cancelled["Quantity"] * cancelled["UnitPrice"]).abs()
     )

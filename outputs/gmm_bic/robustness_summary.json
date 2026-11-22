@@ -1,0 +1,9 @@
+{
+  "input_sha256": "567dabe1f90dbc5044f719f5aedd314dd95ebffa9657c76d639b07b67bdafbe0",
+  "fingerprint_format": "sha256-lf-v1",
+  "winsor_quantile": 1.0,
+  "seed_check_n_init": 10,
+  "seed_check_reg_covar": 0.1,
+  "minimum_pairwise_ari": 0.6460985571221718,
+  "median_pairwise_ari": 0.7034613984372675
+}
