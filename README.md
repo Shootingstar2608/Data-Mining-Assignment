@@ -79,6 +79,36 @@ mặc định trên `data/rfm.csv` là cấu hình lịch sử khác với pipel
 Khi thay đầu vào dùng `python src/pipeline.py --help`; cần đủ khách để các
 ứng viên GMM đạt điều kiện kích thước nhóm tối thiểu.
 
+## Demo Streamlit
+
+Dùng môi trường `.venv` hiện có, cài thêm thư viện demo:
+
+```bash
+source .venv/bin/activate
+python -m pip install -r requirements-demo.txt
+python -m streamlit run streamlit_app.py
+```
+
+Mở `http://localhost:8501`. Trên Windows, kích hoạt bằng
+`.venv\Scripts\Activate.ps1`. Các kết quả đã được commit nên có thể mở demo
+ngay; chỉ cần chạy `python src/pipeline.py` khi muốn tạo lại kết quả.
+
+App có bốn phần tương ứng báo cáo nhóm:
+
+- **Giới thiệu:** mục tiêu, dữ liệu, tổng quan nhóm và giá trị đóng góp.
+- **EDA:** phân phối RFM tương tác, bật/tắt log, tương quan và thống kê làm sạch.
+- **Modeling:** đổi chỉ số so sánh, xem chọn k, độ ổn định và độ nhạy.
+- **Visualize:** lọc phân khúc/quốc gia, PCA tương tác, tìm khách, tải CSV,
+  chân dung nhóm và nhập thử RFM để gán nhóm bằng model đã lưu.
+
+App chỉ đọc đầu ra hiện hành và suy luận từ model, không huấn luyện lại khi
+tương tác. Dữ liệu giả định nhập thử phải cùng cửa sổ và định nghĩa RFM;
+đây chưa phải dự báo tương lai. Bộ lọc PCA không thay đổi các chỉ số đánh giá
+mô hình toàn tập. Các thành phần và xác suất GMM có hệ nhãn riêng với K-Means.
+
+Kiểm tra cả thao tác demo bằng `python -m unittest discover -s tests -v`
+sau khi cài `requirements-demo.txt`. Xem [kịch bản demo](docs/DEMO.md).
+
 ## Nguồn dữ liệu
 
 Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository.
