@@ -1,0 +1,3 @@
+-r requirements-lock.txt
+streamlit==1.67.0
+altair==6.3.0

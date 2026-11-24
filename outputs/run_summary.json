@@ -1,0 +1,83 @@
+{
+  "customer_count": 4320,
+  "features": [
+    "Recency",
+    "Frequency",
+    "Monetary"
+  ],
+  "input_sha256": "567dabe1f90dbc5044f719f5aedd314dd95ebffa9657c76d639b07b67bdafbe0",
+  "fingerprint_format": "sha256-lf-v1",
+  "preprocessing": "log1p then StandardScaler; no winsorization",
+  "seed": 42,
+  "primary_model": "K-Means k=4",
+  "software_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8",
+    "seaborn": "0.13.2",
+    "joblib": "1.5.3",
+    "openpyxl": "3.1.5",
+    "threadpoolctl": "3.6.0"
+  },
+  "comparison": [
+    {
+      "Model": "RFM scoring",
+      "Components": 10,
+      "Silhouette": 0.11212625714262874,
+      "DaviesBouldin": 1.4531395338674877,
+      "CalinskiHarabasz": 1267.004756918488,
+      "SmallestSegment": 36,
+      "LargestSegment": 1337,
+      "SmallestShare": 0.008333333333333333,
+      "LargestShare": 0.30949074074074073
+    },
+    {
+      "Model": "K-Means k=4",
+      "Components": 4,
+      "Silhouette": 0.33879324911954567,
+      "DaviesBouldin": 1.01237274322605,
+      "CalinskiHarabasz": 3330.8601514752195,
+      "SmallestSegment": 685,
+      "LargestSegment": 1622,
+      "SmallestShare": 0.15856481481481483,
+      "LargestShare": 0.37546296296296294
+    },
+    {
+      "Model": "GMM k=4",
+      "Components": 4,
+      "Silhouette": 0.33755660980245017,
+      "DaviesBouldin": 0.9761275057735905,
+      "CalinskiHarabasz": 3156.3588635901556,
+      "SmallestSegment": 554,
+      "LargestSegment": 1858,
+      "SmallestShare": 0.12824074074074074,
+      "LargestShare": 0.4300925925925926
+    },
+    {
+      "Model": "Ward k=4",
+      "Components": 4,
+      "Silhouette": 0.30662644779714676,
+      "DaviesBouldin": 1.0394308245066728,
+      "CalinskiHarabasz": 2780.2228434539416,
+      "SmallestSegment": 210,
+      "LargestSegment": 2195,
+      "SmallestShare": 0.04861111111111111,
+      "LargestShare": 0.5081018518518519
+    },
+    {
+      "Model": "GMM BIC",
+      "Components": 8,
+      "Silhouette": 0.28936261939008046,
+      "DaviesBouldin": 1.0140339409894263,
+      "CalinskiHarabasz": 2679.394084614919,
+      "SmallestSegment": 69,
+      "LargestSegment": 986,
+      "SmallestShare": 0.01597222222222222,
+      "LargestShare": 0.22824074074074074
+    }
+  ],
+  "gmm_k4_bic": 29643.899725003837,
+  "gmm_k4_share_confidence_below_0_7": 0.43796296296296294
+}
